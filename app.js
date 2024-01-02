@@ -56,6 +56,11 @@ for (let operatorButton of operatorButtons) {
 // function for displaying and storing numbers 
 
 function updateDisplay(value) {
+
+    if (value === '.' && display.textContent.includes('.')) {
+        return;
+    }
+
     if (!operator) {
         num1 += value
         display.textContent = num1;
@@ -77,7 +82,7 @@ function updateOperator(value) {
 
 // running the operate function
 
-let equals = document.querySelector('#equals');
+let equals = document.querySelector('.equals');
 
 equals.addEventListener('click', () => {
     operate();
@@ -118,6 +123,14 @@ function operate() {
     operator = '';
 }
 
+// decimal button 
+
+let decimalButton = document.querySelector('.decimal');
+
+decimalButton.addEventListener('click', () => {
+    updateDisplay('.');
+}
+)
 
 
 // clearing and resetting everthing on the display 
