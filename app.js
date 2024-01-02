@@ -40,8 +40,15 @@ for (let numButton of numButtons) {
 
 for (let operatorButton of operatorButtons) {
     operatorButton.addEventListener('click', () => {
-        updateOperator(operatorButton.textContent);
 
+        if (num1 && num2 && operator) {
+
+            operate();
+            updateOperator(operatorButton.textContent);
+
+        } else {
+            updateOperator(operatorButton.textContent);
+        }
     })
 }
 
@@ -61,9 +68,20 @@ function updateDisplay(value) {
 // function for displaying and storing operator
 
 function updateOperator(value) {
+
     operator = value;
-    display.textContent = num1 + ' ' + operator;
+    display.textContent = num1 + ' ' + operator
+
+
 }
+
+// running the operate function
+
+let equals = document.querySelector('#equals');
+
+equals.addEventListener('click', () => {
+    operate();
+})
 
 // function for calculating using all the variables
 
@@ -97,13 +115,7 @@ function operate() {
     operator = '';
 }
 
-// running the operate function
 
-let equals = document.querySelector('#equals');
-
-equals.addEventListener('click', () => {
-    operate();
-})
 
 // clearing and resetting everthing on the display 
 
@@ -115,3 +127,4 @@ clearBtn.addEventListener('click', () => {
     operator = '';
     display.textContent = '0';
 })
+
