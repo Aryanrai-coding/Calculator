@@ -108,6 +108,9 @@ function operate() {
 
     };
 
+    // displaying result rounded to four decimal places
+    result = parseFloat(result.toFixed(4));
+
     display.textContent = result.toString();
 
     num1 = result.toString();
